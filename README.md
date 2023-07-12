@@ -9,10 +9,10 @@ Ps. The main part of this project is prompt engineering: https://help.openai.com
 
 ### Requirements
 Build an API endpoint that extracts the user intent for a new appointment from a natural language message in Turkish using GPT4.
-- Extract both relative and absolute time and date. Handle "bugün", "yarın", "bu Cuma", "30 Temmuz"
+- Extract both relative and absolute time and date. Handle `bugün`, `yarın`, `bu Cuma`, `30 Temmuz`
 - No "parsing" natural language - GPT4 should be doing that for you.
-- Given a message like "Yarin oglen 2'de musait misiniz?" the API endpoint should output
-- JSON similar to the following (this example assumes the date is 2023-07-29): { intent: "new_appointment", datetimeStr: "2023-07-30T14:00" }
+- Given a message like `Yarin oglen 2'de musait misiniz?` the API endpoint should output
+- JSON similar to the following (this example assumes the date is `2023-07-29`): `{ intent: "new_appointment", datetimeStr: "2023-07-30T14:00" }`
 - Including a suite of tests that call the API endpoint with a few different example inputs. Tests should assert that the correct intent and datetime is extracted, also assert that intents other than new appointments are  classified as "other."
 
 ### How to setup
