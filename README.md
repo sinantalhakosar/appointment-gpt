@@ -32,4 +32,11 @@ OPENAI_API_KEY=<your OpenAI API key>
 10. Make a `GET` request to /appointment-classify to start building your own classifier model (please read `CLASSIFICATION_README`)
 11. Make a `GET` request to /ask to chat with OpenAI API (please read `ASK_README`)
 
+### Things can be improved
+In the project I tried to keep time zones into consideration but in some scenerios its working flaky. Based on the run time
+For example if you are in Turkey and run this project at night there can be some +/- 1day.
+You can observe this with running the tests (please check `expected` & `received` difference). So I advise you to run it at noon :D
+
+Also since this project using GPT, we shouldnt expect 100% correctness.
+
 - Sinan Talha KOSAR (sinantalhakosar@gmail.com)
