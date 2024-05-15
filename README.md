@@ -1,19 +1,18 @@
 ### Description
 
-The aim of this project is assigning a specific job to GPT. And trying to understand user messages' intent whether is an appointment request with specific date/time or not. Basically labelling
+The aim of this project is assigning a specific job to GPT. And trying to understand user messages' intent whether is an appointment request with specific date/time or not, basically labelling
 There are some rules assigned to GPT, you can see them as `systemContent` in `/routes/appointment.ts`
 The tests are written in Turkish language but the system I tried to build is trying to support other languages that OpenAI supports (`systemContent` is written in English)
 Its using `gpt-3.5-turbo`
 
 Ps. The main part of this project is prompt engineering: https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-openai-api (this is the main part of this project)
 
-### Requirements
-Build an API endpoint that extracts the user intent for a new appointment from a natural language message in Turkish using GPT4.
-- Extract both relative and absolute time and date. Handle `bugün`, `yarın`, `bu Cuma`, `30 Temmuz`
-- No "parsing" natural language - GPT4 should be doing that for you.
-- Given a message like `Yarin oglen 2'de musait misiniz?` the API endpoint should output
-- JSON similar to the following (this example assumes the date is `2023-07-29`): `{ intent: "new_appointment", datetimeStr: "2023-07-30T14:00" }`
-- Including a suite of tests that call the API endpoint with a few different example inputs. Tests should assert that the correct intent and datetime is extracted, also assert that intents other than new appointments are  classified as "other."
+### How it works?
+- Its an API endpoint that extracts the user intent for a new appointment from a natural language message using GPT4.
+- Handles both relative and absolute time and date. For example `today`, `tomorrow`, `this Friday`, `30 of July` (or from other languages for example in Turkish `bugün`)
+- No "parsing" natural language - GPT4 is doing that for us.
+- Given a message like `Are you free for tomorrow at 2pm?`, the API endpoint output a JSON similar to the following (this example assumes the date is `2023-07-29`): `{ intent: "new_appointment", datetimeStr: "2023-07-30T14:00" }`
+- Included a suite of tests that call the API endpoint with a few different example inputs. Tests are asserting that the correct intent and datetime is extracted, also assert that intents other than new appointments are  classified as "other."
 
 ### How to setup
 1. Clone this project
